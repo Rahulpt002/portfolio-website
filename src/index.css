@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/antd@5/dist/antd.min.css');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  @apply bg-[var(--bg-light)] text-[var(--text-light)] transition-colors duration-300;
+}
+
+.dark body {
+  @apply bg-[var(--bg-dark)] text-[var(--text-dark)];
+}
+
+/* Custom variables for bright light mode and rich dark mode */
+:root {
+  --bg-light: #ffffff; /* Pure white for bright light mode */
+  --bg-dark: #0f172a; /* Deep slate for dark mode */
+  --text-light: #1e293b; /* Dark slate for light mode text */
+  --text-dark: #f1f5f9; /* Light gray for dark mode text */
+}
+
+/* NavBar styles */
+nav {
+  @apply bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100 shadow-lg;
+}
+
+nav a {
+  @apply transition-colors duration-200 hover:text-blue-500 dark:hover:text-blue-400;
+}
+
+/* Ant Design button in navbar */
+.ant-btn {
+  @apply rounded-full border-none transition-colors duration-200;
+}
+
+.ant-btn-primary {
+  @apply bg-blue-600 text-white hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 hover:scale-105;
+}
+
+/* Hero styles */
+#home {
+  @apply bg-gradient-to-r from-blue-500 to-cyan-500 text-white dark:from-blue-900 dark:to-cyan-900 py-24;
+}
+
+#home h2 {
+  @apply text-4xl md:text-5xl font-bold mb-4 animate-fade-in;
+}
+
+#home p {
+  @apply text-lg md:text-xl mb-6 opacity-90;
+}
+
+#home a {
+  @apply bg-white text-blue-600 px-6 py-3 rounded-full hover:bg-blue-100 hover:scale-105 transition-transform duration-200 dark:bg-gray-200 dark:text-blue-800 dark:hover:bg-gray-300;
+}
+
+/* Projects styles */
+#projects {
+  @apply bg-gray-50 dark:bg-gray-900 py-16;
+}
+
+#projects .bg-white {
+  @apply dark:bg-gray-800 dark:text-gray-100 transform transition-all duration-300 hover:scale-105 hover:shadow-xl;
+}
+
+#projects .text-gray-600 {
+  @apply dark:text-gray-300;
+}
+
+#projects button {
+  @apply bg-gray-200 text-gray-700 dark:bg-gray-700 dark:text-gray-200 hover:bg-blue-500 hover:text-white dark:hover:bg-blue-500 dark:hover:text-white transition-colors duration-200;
+}
+
+/* Skills styles */
+#skills {
+  @apply py-16 bg-[var(--bg-light)] dark:bg-[var(--bg-dark)];
+}
+
+#skills span {
+  @apply bg-blue-500 text-white dark:bg-blue-400 px-4 py-2 rounded-full transform transition-transform duration-200 hover:scale-110;
+}
+
+/* Contact styles */
+#contact {
+  @apply bg-gray-50 dark:bg-gray-900 py-16;
+}
+
+#contact .text-gray-700 {
+  @apply dark:text-gray-200;
+}
+
+#contact .bg-white {
+  @apply dark:bg-gray-800;
+}
+
+#contact .border {
+  @apply border-gray-300 dark:border-gray-600;
+}
+
+#contact .text-gray-600 {
+  @apply dark:text-gray-300;
+}
+
+#contact button {
+  @apply bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500 hover:scale-105 transition-transform duration-200;
+}
+
+/* Scroll-to-top button */
+.scroll-to-top {
+  @apply fixed bottom-6 right-6 bg-blue-500 text-white p-3 rounded-full shadow-lg hover:bg-blue-600 dark:bg-blue-400 dark:hover:bg-blue-500 transition-all duration-200;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
