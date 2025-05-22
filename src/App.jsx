@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { motion } from 'framer-motion';
 import NavBar from './components/NavBar';
 import Hero from './components/Hero';
-import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
+
+const Projects = lazy(() => import('./components/Projects'));
+const Skills = lazy(() => import('./components/Skills'));
+const Contact = lazy(() => import('./components/Contact'));
 
 export default function App() {
   const [theme, setTheme] = useState('light');
@@ -32,9 +33,11 @@ export default function App() {
       >
         <NavBar theme={theme} toggleTheme={toggleTheme} />
         <Hero />
-        <Projects />
-        <Skills />
-        <Contact />
+        <Suspense fallback={<div className="text-center py-10">Loading...</div>}>
+          <Projects />
+          <Skills />
+          <Contact />
+        </Suspense>
         {showScroll && (
           <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
